@@ -1,31 +1,35 @@
-// Select the theme selector dropdown using document.querySelector
+// Select the theme selector button using document.querySelector
 const themeSelector = document.querySelector('#theme-selector');
 
-function changeTheme() {
-  // Get the current value of the theme selector
-  const selectedTheme = themeSelector.value;
+// Select the body element
+const body = document.body;
 
-  // Select the body element
-  const body = document.body;
-  
-  // Select the logo element (assuming it's the only <img> on the page)
-  const logo = document.querySelector('img');
-  
-  // If the selected theme is 'dark'
-  if (selectedTheme === 'dark') {
-    // Add the 'dark' class to the body
-    body.classList.add('dark');
-    
-    // Change the logo to the white version
-    logo.src = 'path_to_white_logo.png'; // Replace with actual path to white logo
-  } else {
-    // Otherwise, remove the 'dark' class from the body
+// Select the logo element (assuming it's the only <img> on the page)
+const logo = document.querySelector('img');
+
+// Function to change the theme when the button is clicked
+function changeTheme() {
+  // Check if the dark class is already applied to the body
+  if (body.classList.contains('dark')) {
+    // If dark mode is on, remove the 'dark' class
     body.classList.remove('dark');
     
-    // Change the logo to the blue version
-    logo.src = 'path_to_blue_logo.png'; // Replace with actual path to blue logo
+    // Change the button text to 'dark'
+    themeSelector.textContent = 'dark';
+
+    // Change the logo back to the blue version
+    logo.src = "../image/byui-logo_blue (1).webp"; // Replace with actual path to blue logo
+  } else {
+    // Otherwise, apply the 'dark' class
+    body.classList.add('dark');
+    
+    // Change the button text to 'light' (indicating the user can switch back to light mode)
+    themeSelector.textContent = 'light';
+
+    // Change the logo to the white version
+    logo.src = "../image/byui-logo_blue (1).webp"; 
   }
 }
 
-// Add an event listener to the theme selector
-themeSelector.addEventListener('change', changeTheme);
+// Add an event listener to the theme selector button
+themeSelector.addEventListener('click', changeTheme);
