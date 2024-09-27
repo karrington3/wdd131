@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Pics Gallery</title>
+    <link rel="stylesheet" href="coolpics.css">
+</head>
+
+<body>
+    <header>
+        <h1>Cool Pics <span>📷</span></h1>
+        <button id="menuButton" onclick="toggleMenu()">Menu</button>
+        <nav id="navMenu" style="display: none;">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Places</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery">
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture1" onclick="showImage(this.src)">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture2" onclick="showImage(this.src)">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture3" onclick="showImage(this.src)">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture4" onclick="showImage(this.src)">
+
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture5" onclick="showImage(this.src)">
+
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture6" onclick="showImage(this.src)">
+
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture7" onclick="showImage(this.src)">
+
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture8" onclick="showImage(this.src)">
+            </figure>
+            <figure>
+                <img src="norris-sm.jpeg" alt="picture9" onclick="showImage(this.src)">
+            </figure>
+
+        </section>
+
+        <!-- Modal for image viewer -->
+        <div id="imageModal" class="modal" onclick="closeModal()">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+    </main>
+
+    <footer>©2023 Not a real site 😀</footer>
+
+    <script>
+        // Toggle menu for small screens
+        function toggleMenu() {
+            var menu = document.getElementById('navMenu');
+            if (menu.style.display === 'none') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
+
+        // Show image in modal
+        function showImage(src) {
+            var modal = document.getElementById('imageModal');
+            var modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        // Close modal when clicked
+        function closeModal() {
+            var modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

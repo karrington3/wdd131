@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+:root {
+    --primary-color: #52489c; /* Purple for header, footer */
+    --secondary-color: #ebebeb; /* Light gray for background */
+    --accent-color: #f45b69; /* Accent color for buttons */
+    --text-dark: #333; /* Dark text for main content */
+    --text-light: #ffffff; /* Light text for header, footer */
+    --primary-font: Arial, Helvetica, sans-serif;
+    --secondary-font: 'Mooli', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color); /* Light gray for page background */
+}
+
+header {
+    background-color: var(purple); /* Dark purple for header */
+    color: var(--text-light); /* White text */
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+header h1 {
+    font-family: var(--secondary-font);
+    font-size: 2.5rem;
+}
+
+header button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(blue); /* Pink for button */
+    color: var(--text-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: var(--text-light); /* White text for menu links */
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+    justify-items: center;
+    background-color: var(--secondary-color); /* Light gray background */
+}
+
+.gallery figure {
+    margin: 0;
+    background-color: var(--text-light); /* White background for image frames */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around images */
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(blue); /* Dark purple for footer */
+    color: var(--text-light); /* White text */
+    font-size: 1rem;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    header button {
+        display: block;
+    }
+    
+    nav {
+        display: none;
+    }
+
+    #navMenu {
+        display: block;
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
+}
