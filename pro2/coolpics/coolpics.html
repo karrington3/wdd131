@@ -24,6 +24,7 @@
     </header>
 
     <main>
+        <h2>Current Work</h2>
         <section class="gallery">
             <figure>
                 <img src="norris-sm.jpeg" alt="picture1" onclick="showImage(this.src)">
@@ -36,19 +37,15 @@
             </figure>
             <figure>
                 <img src="norris-sm.jpeg" alt="picture4" onclick="showImage(this.src)">
-
             </figure>
             <figure>
                 <img src="norris-sm.jpeg" alt="picture5" onclick="showImage(this.src)">
-
             </figure>
             <figure>
                 <img src="norris-sm.jpeg" alt="picture6" onclick="showImage(this.src)">
-
             </figure>
             <figure>
                 <img src="norris-sm.jpeg" alt="picture7" onclick="showImage(this.src)">
-
             </figure>
             <figure>
                 <img src="norris-sm.jpeg" alt="picture8" onclick="showImage(this.src)">
@@ -56,7 +53,6 @@
             <figure>
                 <img src="norris-sm.jpeg" alt="picture9" onclick="showImage(this.src)">
             </figure>
-
         </section>
 
         <!-- Modal for image viewer -->
@@ -68,31 +64,7 @@
 
     <footer>©2023 Not a real site 😀</footer>
 
-    <script>
-        // Toggle menu for small screens
-        function toggleMenu() {
-            var menu = document.getElementById('navMenu');
-            if (menu.style.display === 'none') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-        }
-
-        // Show image in modal
-        function showImage(src) {
-            var modal = document.getElementById('imageModal');
-            var modalImg = document.getElementById('modalImage');
-            modal.style.display = "block";
-            modalImg.src = src;
-        }
-
-        // Close modal when clicked
-        function closeModal() {
-            var modal = document.getElementById('imageModal');
-            modal.style.display = "none";
-        }
-    </script>
+    <script src="coolpics.js"></script>
 </body>
 
 </html>
