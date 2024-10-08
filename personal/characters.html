@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Player Characters</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="npcs.html">NPCs</a></li>
+                <li><a href="initiative.html">Initiative Tracker</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="characters">
+        <h2>Your Characters</h2>
+        <img src="pics/community.png" alt="Karrington DM Tool Logo" class="page-logo">
+        
+        <div id="character-list">
+            <!-- Character list will be dynamically populated -->
+        </div>
+
+        <h3>Add New Character</h3>
+        <form id="add-character-form">
+            <label for="char-name">Name:</label>
+            <input type="text" id="char-name" required>
+            <label for="char-class">Class:</label>
+            <input type="text" id="char-class" required>
+            <label for="char-level">Level:</label>
+            <input type="number" id="char-level" required>
+            <button type="submit">Add Character</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Made by Karrington Mitchell</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

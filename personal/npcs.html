@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPCs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Non-Player Characters</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="characters.html">Characters</a></li>
+                <li><a href="initiative.html">Initiative Tracker</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="npcs">
+        <h2>Your NPCs</h2>
+        <img src="pics/community.png" alt="Karrington DM Tool Logo" class="page-logo">
+        <div id="npc-list">
+            <!-- NPC list will be dynamically populated -->
+        </div>
+
+        <h3>Add New NPC</h3>
+        <form id="add-npc-form">
+            <label for="npc-name">Name:</label>
+            <input type="text" id="npc-name" required>
+            <label for="npc-role">Role:</label>
+            <input type="text" id="npc-role" required>
+            <button type="submit">Add NPC</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Made by Karrington Mitchell</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
