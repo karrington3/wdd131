@@ -1,28 +1,36 @@
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="creditcard.js" defer></script> <!-- 'defer' ensures the script runs after the DOM is fully loaded -->
 </head>
 <body>
     <div class="form-container">
         <form id="credit-card" class="credit-card-form">
             <div class="card-front">
                 <p>Total: $199</p>
-                <img class="card-image" src="card-image-url" height="55px">
+                <img class="card-image" src="card-image-url" alt="Card Image" height="55px">
                 <label for="card-number">Card Number</label>
                 <input type="text" id="card-number" name="cardNumber" placeholder="1234 5678 9101 1020" required>
                 <label for="card-holder">Card Holder</label>
-                <input type="text" id="card-holder" placeholder="John Doe" required>
+                <input type="text" id="card-holder" name="cardHolder" placeholder="John Doe" required>
                 <div class="expiration">
                     <label for="expiration-mm">Expiration</label>
-                    <input type="text" id="expiration-mm" placeholder="MM" required>
-                    <input type="text" id="expiration-yy" placeholder="YY" required>
+                    <input type="text" id="expiration-mm" name="expirationMM" placeholder="MM" required>
+                    <input type="text" id="expiration-yy" name="expirationYY" placeholder="YY" required>
                 </div>
                 <p class="errorMsg"></p>
             </div>
             <div class="card-back">
                 <div class="stripe"></div>
                 <label for="cvc">CVC/CVV</label>
-                <input type="text" id="cvc" placeholder="XXX" required>
+                <input type="text" id="cvc" name="cvc" placeholder="XXX" required>
             </div>
             <button type="submit">Submit</button>
         </form>
     </div>
 </body>
+</html>
