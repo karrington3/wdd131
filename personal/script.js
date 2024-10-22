@@ -1,89 +1,164 @@
-// Placeholder character data
-let characters = [
-    { name: 'Eldor', class: 'Wizard', level: 5 },
-    { name: 'Thalia', class: 'Rogue', level: 4 }
-];
+// Character Management
+let characters = JSON.parse(localStorage.getItem('characters')) || [];
 
-// Placeholder NPC data
-let npcs = [
-    { name: 'Innkeeper', role: 'Quest Giver' },
-    { name: 'Blacksmith', role: 'Vendor' }
-];
+document.getElementById('add-character-form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const newCharacter = {
+        name: document.getElementById('char-name').value,
+        class: document.getElementById('char-class').value,
+        level: document.getElementById('char-level').value,
+        strength: document.getElementById('char-strength').value,
+        dexterity: document.getElementById('char-dexterity').value,
+        constitution: document.getElementById('char-constitution').value,
+        intelligence: document.getElementById('char-intelligence').value,
+        wisdom: document.getElementById('char-wisdom').value,
+        charisma: document.getElementById('char-charisma').value
+    };
+    
+    characters.push(newCharacter);
+    localStorage.setItem('characters', JSON.stringify(characters));
+    displayCharacters();
+    this.reset(); // Clear the form
+});
 
-// Display characters on the page
 function displayCharacters() {
     const characterList = document.getElementById('character-list');
-    characterList.innerHTML = characters.map(character => `
-        <div class="character-card">
-            <h3>${character.name}</h3>
-            <p>Class: ${character.class}</p>
-            <p>Level: ${character.level}</p>
-        </div>
-    `).join('');
+    if (characterList) {
+        characterList.innerHTML = ''; // Clear the current list
+
+        characters.forEach((character, index) => {
+            characterList.innerHTML += `
+                <div class="character-card">
+                    <h4>${character.name} (${character.class}, Level ${character.level})</h4>
+                    <p>Strength: ${character.strength}, Dexterity: ${character.dexterity}, Constitution: ${character.constitution}, Intelligence: ${character.intelligence}, Wisdom: ${character.wisdom}, Charisma: ${character.charisma}</p>
+                    <button onclick="deleteCharacter(${index})">Delete</button>
+                </div>
+            `;
+        });
+    }
 }
 
-// Display NPCs on the page
-function displayNPCs() {
-    const npcList = document.getElementById('npc-list');
-    npcList.innerHTML = npcs.map(npc => `
-        <div class="npc-card">
-            <h3>${npc.name}</h3>
-            <p>Role: ${npc.role}</p>
-        </div>
-    `).join('');
-}
-
-// Handle adding a new character
-document.getElementById('add-character-form')?.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent page reload on form submission
-
-    const charName = document.getElementById('char-name').value;
-    const charClass = document.getElementById('char-class').value;
-    const charLevel = document.getElementById('char-level').value;
-
-    characters.push({ name: charName, class: charClass, level: parseInt(charLevel) });
+function deleteCharacter(index) {
+    characters.splice(index, 1);
+    localStorage.setItem('characters', JSON.stringify(characters));
     displayCharacters();
+}
 
-    // Clear the form inputs after submission
-    document.getElementById('add-character-form').reset();
+// Generate Random Character
+document.getElementById('generate-random-character-btn')?.addEventListener('click', function() {
+    const randomCharacter = {
+        name: 'Random Character ' + (characters.length + 1),
+        class: 'Random Class',
+        level: Math.floor(Math.random() * 20) + 1,
+        strength: Math.floor(Math.random() * 20) + 1,
+        dexterity: Math.floor(Math.random() * 20) + 1,
+        constitution: Math.floor(Math.random() * 20) + 1,
+        intelligence: Math.floor(Math.random() * 20) + 1,
+        wisdom: Math.floor(Math.random() * 20) + 1,
+        charisma: Math.floor(Math.random() * 20) + 1,
+    };
+    
+    characters.push(randomCharacter);
+    localStorage.setItem('characters', JSON.stringify(characters));
+    displayCharacters();
 });
 
-// Handle adding a new NPC
+// On page load, display characters
+if (document.getElementById('character-list')) {
+    displayCharacters();
+}
+
+// NPC Management
+let npcs = JSON.parse(localStorage.getItem('npcs')) || [];
+
 document.getElementById('add-npc-form')?.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent page reload on form submission
-
-    const npcName = document.getElementById('npc-name').value;
-    const npcRole = document.getElementById('npc-role').value;
-
-    npcs.push({ name: npcName, role: npcRole });
-    displayNPCs();
-
-    // Clear the form inputs after submission
-    document.getElementById('add-npc-form').reset();
+    event.preventDefault();
+    const newNpc = {
+        name: document.getElementById('npc-name').value,
+        role: document.getElementById('npc-role').value
+    };
+    
+    npcs.push(newNpc);
+    localStorage.setItem('npcs', JSON.stringify(npcs));
+    displayNpcs();
+    this.reset(); // Clear the form
 });
+
+function displayNpcs() {
+    const npcList = document.getElementById('npc-list');
+    if (npcList) {
+        npcList.innerHTML = ''; // Clear the current list
+
+        npcs.forEach(npc => {
+            npcList.innerHTML += `
+                <div class="npc-card">
+                    <h4>${npc.name} (${npc.role})</h4>
+                </div>
+            `;
+        });
+    }
+}
+
+// On page load, display NPCs
+if (document.getElementById('npc-list')) {
+    displayNpcs();
+}
 
 // Initiative Tracker
-let initiativeOrder = [];
+let initiativeList = JSON.parse(localStorage.getItem('initiativeList')) || [];
 
 function addPlayer() {
-    const playerName = prompt("Enter player's name:");
-    const initiative = prompt("Enter initiative roll:");
-    initiativeOrder.push({ player: playerName, roll: initiative });
+    const playerName = document.getElementById('player-name').value;
+    const initiativeValue = document.getElementById('initiative-value').value;
+
+    const newPlayer = {
+        name: playerName,
+        initiative: parseInt(initiativeValue)
+    };
+
+    initiativeList.push(newPlayer);
+    localStorage.setItem('initiativeList', JSON.stringify(initiativeList));
+
     displayInitiative();
 }
 
 function displayInitiative() {
-    const initiativeList = document.getElementById('initiative-list');
-    initiativeOrder.sort((a, b) => b.roll - a.roll); // Sort by highest roll
-    initiativeList.innerHTML = initiativeOrder.map(entry => `
-        <div>
-            ${entry.player}: ${entry.roll}
-        </div>
-    `).join('');
+    const initiativeListDiv = document.getElementById('initiative-list');
+    if (initiativeListDiv) {
+        initiativeListDiv.innerHTML = '';
+
+        initiativeList.sort((a, b) => b.initiative - a.initiative);
+
+        initiativeList.forEach(player => {
+            initiativeListDiv.innerHTML += `
+                <div class="initiative-card">
+                    <h4>${player.name} (Initiative: ${player.initiative})</h4>
+                </div>
+            `;
+        });
+    }
 }
 
-// Initialize page content
-window.onload = function() {
-    if (document.getElementById('character-list')) displayCharacters();
-    if (document.getElementById('npc-list')) displayNPCs();
+// On page load, display the initiative list
+if (document.getElementById('initiative-list')) {
+    displayInitiative();
 }
+
+// Dice Roller Function
+function rollDice(sides) {
+    const result = Math.floor(Math.random() * sides) + 1;
+    document.getElementById('dice-result').textContent = `Result: ${result}`;
+}
+
+// Story Management
+document.getElementById('save-story')?.addEventListener('click', function() {
+    const storyText = document.getElementById('story-text').value;
+    localStorage.setItem('story', storyText);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const savedStory = localStorage.getItem('story');
+    if (savedStory) {
+        document.getElementById('story-text').value = savedStory;
+    }
+});

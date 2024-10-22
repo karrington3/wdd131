@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Initiative Tracker</title>
+    <title>Initiative Tracker and Dice Roller</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <header>
-        <h1>Initiative Tracker</h1>
+        <h1>Initiative Tracker and Dice Roller</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -21,10 +21,26 @@
     <section id="initiative-tracker">
         <h2>Track Initiative</h2>
         <img src="pics/community.png" alt="Karrington DM Tool Logo" class="page-logo">
+        
+        <input type="text" id="player-name" placeholder="Enter Player Name" required>
+        <input type="number" id="initiative-value" placeholder="Enter Initiative Value" required>
+        <button onclick="addPlayer()">Add Player to Initiative</button>
+
         <div id="initiative-list">
+            <h3>Initiative List</h3>
             <!-- Initiative list will be dynamically populated -->
         </div>
-        <button onclick="addPlayer()">Add Player to Initiative</button>
+
+        <h2>Dice Roller</h2>
+        <div>
+            <button onclick="rollDice(20)">Roll D20</button>
+            <button onclick="rollDice(12)">Roll D12</button>
+            <button onclick="rollDice(10)">Roll D10</button>
+            <button onclick="rollDice(8)">Roll D8</button>
+            <button onclick="rollDice(6)">Roll D6</button>
+            <button onclick="rollDice(4)">Roll D4</button>
+        </div>
+        <p id="dice-result">Result: </p>
     </section>
 
     <footer>

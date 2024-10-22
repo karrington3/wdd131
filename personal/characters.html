@@ -22,7 +22,6 @@
         <h2>Your Characters</h2>
         <img src="pics/community.png" alt="Karrington DM Tool Logo" class="page-logo">
 
-        
         <div id="character-list">
             <!-- Character list will be dynamically populated -->
         </div>
@@ -31,11 +30,33 @@
         <form id="add-character-form">
             <label for="char-name">Name:</label>
             <input type="text" id="char-name" required>
+
             <label for="char-class">Class:</label>
             <input type="text" id="char-class" required>
+
             <label for="char-level">Level:</label>
             <input type="number" id="char-level" required>
+
+            <label for="char-strength">Strength:</label>
+            <input type="number" id="char-strength" required>
+
+            <label for="char-dexterity">Dexterity:</label>
+            <input type="number" id="char-dexterity" required>
+
+            <label for="char-constitution">Constitution:</label>
+            <input type="number" id="char-constitution" required>
+
+            <label for="char-intelligence">Intelligence:</label>
+            <input type="number" id="char-intelligence" required>
+
+            <label for="char-wisdom">Wisdom:</label>
+            <input type="number" id="char-wisdom" required>
+
+            <label for="char-charisma">Charisma:</label>
+            <input type="number" id="char-charisma" required>
+
             <button type="submit">Add Character</button>
+            <button type="button" id="generate-random-character-btn">Generate Random Character</button>
         </form>
     </section>
 

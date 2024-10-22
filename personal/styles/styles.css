@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -9,15 +10,10 @@ header {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
 }
 
 nav ul {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
@@ -27,35 +23,43 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
 }
 
-section {
-    padding: 20px;
+h1, h2 {
+    text-align: center;
+}
+
+.page-logo {
+    display: block;
+    margin: 0 auto;
+    width: 200px; /* Adjust size as needed */
 }
 
 footer {
-    background-color: #333;
-    color: white;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-/* Logo style on non-home pages */
-.page-logo {
-    display: block;
-    margin: 10px auto;
-    max-width: 150px;
-    height: auto;
+    margin-top: 20px;
 }
 
-/* Home logo styling remains unchanged */
-#home-logo {
-    display: block;
-    margin: 0 auto;
-    max-width: 300px;
-    height: auto;
+.character-card, .npc-card, .initiative-card {
+    background-color: #fff;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    width: 80%;
+}
+
+form {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 80%;
+}
+
+input[type="text"], input[type="number"], textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
 }
