@@ -10,7 +10,7 @@ body {
 /* Header */
 header {
     background-color: red;
-    color: #fff;
+    color: #000000;
     padding: 15px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color:black;
     text-decoration: none;
     font-size: 1.1em;
     transition: color 0.3s;
@@ -89,7 +89,7 @@ input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
 /* Buttons */
 button, input[type="submit"] {
     background-color: #ff6600;
-    color: white;
+    color: black;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -125,7 +125,7 @@ footer {
     text-align: center;
     margin-top: 40px;
     font-size: 0.9em;
-    color: #999;
+    color: black;
 }
 
 /* Media Queries for Mobile */
