@@ -1,15 +1,19 @@
-
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
+/* Header */
 header {
-    background-color: #333;
+    background-color: red;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -25,41 +29,108 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
 }
 
+nav ul li a:hover {
+    color: #ff6600;
+}
+
+/* Headings */
 h1, h2 {
     text-align: center;
-}
-
-.page-logo {
-    display: block;
-    margin: 0 auto;
-    width: 200px; /* Adjust size as needed */
-}
-
-footer {
-    text-align: center;
+    color: #333;
     margin-top: 20px;
+    font-weight: 700;
 }
 
+/* Cards */
 .character-card, .npc-card, .initiative-card {
-    background-color: #fff;
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 5px;
-    width: 80%;
-}
-
-form {
+    background-color: #ffffff;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover, .npc-card:hover, .initiative-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Forms */
+form {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 input[type="text"], input[type="number"], textarea {
     width: calc(100% - 20px);
     padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+    border-color: #ff6600;
+    outline: none;
+}
+
+/* Buttons */
+button, input[type="submit"] {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #e65c00;
+}
+
+/* Textbox and Labels */
+input[type="text"], input[type="number"], textarea, label {
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
     margin-bottom: 10px;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* Page Logo */
+.page-logo {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+    .character-card, .npc-card, .initiative-card, form {
+        width: 95%;
+    }
 }
