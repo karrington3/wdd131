@@ -89,15 +89,23 @@ function displayNpcs() {
     if (npcList) {
         npcList.innerHTML = ''; // Clear the current list
 
-        npcs.forEach(npc => {
+        npcs.forEach((npc, index) => {
             npcList.innerHTML += `
                 <div class="npc-card">
                     <h4>${npc.name} (${npc.role})</h4>
+                    <button onclick="deleteNpc(${index})">Delete</button>
                 </div>
             `;
         });
     }
 }
+
+function deleteNpc(index) {
+    npcs.splice(index, 1); // Remove NPC at the given index
+    localStorage.setItem('npcs', JSON.stringify(npcs)); // Save updated list to localStorage
+    displayNpcs(); // Refresh the NPC list
+}
+
 
 // On page load, display NPCs
 if (document.getElementById('npc-list')) {
@@ -121,7 +129,6 @@ function addPlayer() {
 
     displayInitiative();
 }
-
 function displayInitiative() {
     const initiativeListDiv = document.getElementById('initiative-list');
     if (initiativeListDiv) {
@@ -129,14 +136,21 @@ function displayInitiative() {
 
         initiativeList.sort((a, b) => b.initiative - a.initiative);
 
-        initiativeList.forEach(player => {
+        initiativeList.forEach((player, index) => {
             initiativeListDiv.innerHTML += `
                 <div class="initiative-card">
                     <h4>${player.name} (Initiative: ${player.initiative})</h4>
+                    <button onclick="deleteInit(${index})">Kill</button>
                 </div>
             `;
         });
     }
+}
+
+function deleteInit(index) {
+    initiativeList.splice(index, 1); // Remove player at the given index
+    localStorage.setItem('initiativeList', JSON.stringify(initiativeList)); // Save updated list to localStorage
+    displayInitiative(); // Refresh the initiative list
 }
 
 // On page load, display the initiative list
